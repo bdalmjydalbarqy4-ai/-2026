@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>منصة الصلحة العقارية | أرقى وجهة للاستثمار</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: #FCF8F0;
+      color: #2C2A24;
+      direction: rtl;
+      scroll-behavior: smooth;
+    }
+    :root {
+      --gold: #C9A87C;
+      --gold-dark: #B48C5C;
+      --olive: #7A8B5C;
+      --olive-dark: #5E6E42;
+      --sand: #E6DBCB;
+      --charcoal: #2E2C28;
+      --white-soft: #FFFDF9;
+    }
+    
+    /* شريط الإعلانات العلوي */
+    .marquee-container {
+      background: linear-gradient(90deg, var(--gold), var(--olive), var(--gold-dark), var(--gold));
+      background-size: 300% 100%;
+      animation: gradientMove 8s ease infinite;
+      color: white;
+      padding: 12px 0;
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+      z-index: 1001;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .marquee-content {
+      display: inline-block;
+      animation: marqueeScroll 25s linear infinite;
+      white-space: nowrap;
+      padding-right: 100%;
+    }
+    .marquee-content span {
+      margin: 0 15px;
+    }
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #2C2A24, #3A3830);
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .logo-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+    .logo-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: #2C2A24;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+    .logo-text { text-align: right; }
+    .logo-main {
+      font-size: 1.4rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1.3;
+    }
+    .logo-sub {
+      font-size: 0.7rem;
+      color: var(--sand);
+      display: block;
+      font-weight: 500;
+    }
+    .nav-links {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .nav-btn {
+      background: none;
+      border: none;
+      color: #FCF8F0;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.3s;
+      border-radius: 30px;
+    }
+    .nav-btn:hover { background: rgba(201,168,124,0.2); color: var(--gold); }
+    
+    .btn-add-land {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: #2C2A24;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.3s;
+    }
+    .btn-add-land:hover { transform: scale(1.02); opacity: 0.95; }
+    
+    .fab-add-land {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: #2C2A24;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 1050;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: 0.3s;
+    }
+    .fab-add-land:hover { transform: scale(1.1); }
+    
+    .page { display: none; }
+    .page.active-page { display: block; }
+    .dashboard-container { display: none; }
+    
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(0,0,0,0.65), rgba(30,28,20,0.7)), url('https://images.pexels.com/photos/1595108/pexels-photo-1595108.jpeg?auto=compress&w=1600') center/cover;
+      background-attachment: fixed;
+    }
+    .hero-content h1 { 
+      font-size: 2.8rem; 
+      background: linear-gradient(135deg, var(--gold), #fff8e7);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 15px;
+    }
+    .hero-content p { color: #E8E3D9; margin-bottom: 30px; font-size: 1.1rem; }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      padding: 12px 35px;
+      border-radius: 50px;
+      color: #2C2A24;
+      border: none;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+    .btn-viewer {
+      background: linear-gradient(135deg, var(--olive), var(--olive-dark));
+      color: white;
+    }
+    .listings { padding: 60px 0; background: var(--white-soft); }
+    .section-header { text-align: center; margin-bottom: 40px; }
+    .section-header h2 { font-size: 2rem; color: var(--charcoal); position: relative; display: inline-block; }
+    .section-header h2:after { content: ''; position: absolute; bottom: -12px; right: 0; width: 70px; height: 4px; background: var(--gold); border-radius: 4px; }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+    }
+    .land-card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: 0.3s;
+      border: 1px solid rgba(201,168,124,0.2);
+    }
+    .land-card:hover { transform: translateY(-8px); box-shadow: 0 20px 35px rgba(0,0,0,0.12); border-color: var(--gold); }
+    .card-img { height: 210px; background-size: cover; background-position: center; position: relative; }
+    .card-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: #2C2A24;
+      padding: 4px 14px;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 800;
+    }
+    .card-content { padding: 20px; }
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      color: var(--charcoal);
+    }
+    .detail-item { display: flex; align-items: center; gap: 10px; margin: 8px 0; color: #5A564C; font-size: 0.85rem; }
+    .detail-item i { width: 24px; color: var(--gold); }
+    .price { font-size: 1.3rem; font-weight: 800; color: var(--olive-dark); margin-top: 10px; }
+    .gps-icon {
+      background: var(--olive-dark);
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .gps-icon:hover { background: var(--gold); transform: scale(1.08); }
+    
+    .form-card {
+      max-width: 850px;
+      margin: 50px auto;
+      background: white;
+      border-radius: 32px;
+      padding: 35px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      border: 1px solid rgba(201,168,124,0.3);
+    }
+    .form-header { text-align: center; margin-bottom: 30px; color: var(--olive-dark); }
+    .field-group { margin-bottom: 22px; }
+    .field-group label { display: block; font-weight: 700; margin-bottom: 8px; color: var(--charcoal); }
+    .field-group input, .field-group textarea {
+      width: 100%;
+      padding: 12px 18px;
+      border: 1.5px solid #EADECF;
+      border-radius: 50px;
+      font-family: inherit;
+      background: #FEFCF9;
+    }
+    .field-group input:focus, .field-group textarea:focus { outline: none; border-color: var(--gold); }
+    .btn-icon {
+      background: linear-gradient(135deg, var(--olive), var(--olive-dark));
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 50px;
+      cursor: pointer;
+      margin-top: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+    .file-area {
+      border: 2px dashed var(--gold);
+      border-radius: 20px;
+      padding: 25px;
+      text-align: center;
+      cursor: pointer;
+      background: #FEFAF5;
+    }
+    .preview-imgs { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+    .preview-img { width: 70px; height: 70px; object-fit: cover; border-radius: 12px; border: 2px solid var(--gold); }
+    
+    .privacy-content, .contact-card {
+      max-width: 800px;
+      margin: 50px auto;
+      background: white;
+      border-radius: 32px;
+      padding: 45px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+    }
+    .about-wrapper {
+      display: flex;
+      gap: 50px;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 1100px;
+      margin: 50px auto;
+      background: white;
+      border-radius: 32px;
+      padding: 45px;
+    }
+    .about-img { flex: 1; border-radius: 24px; overflow: hidden; }
+    .about-img video { width: 100%; height: auto; border-radius: 24px; }
+    .about-text { flex: 1; }
+    .about-text h2 { color: var(--olive-dark); margin-bottom: 20px; }
+    
+    /* شريط فيديو سفلي مع عناصر التحكم بالصوت */
+    .video-footer {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      padding: 30px 0;
+      margin-top: 0;
+    }
+    .video-banner {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      cursor: pointer;
+      position: relative;
+    }
+    .video-banner video {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+    }
+    .video-controls {
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+    .video-controls button {
+      background: none;
+      border: none;
+      color: var(--gold);
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 5px 10px;
+      transition: 0.3s;
+    }
+    .video-controls button:hover {
+      transform: scale(1.1);
+      color: white;
+    }
+    .video-caption {
+      background: rgba(0,0,0,0.7);
+      color: var(--gold);
+      padding: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+    .volume-slider {
+      width: 80px;
+      cursor: pointer;
+    }
+    
+    footer {
+      background: #2C2A24;
+      padding: 35px;
+      text-align: center;
+      color: #B8B2A4;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+    .contact-phone-widget {
+      position: fixed;
+      bottom: 25px;
+      left: 20px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      padding: 10px 20px;
+      border-radius: 60px;
+      font-weight: 800;
+      z-index: 1100;
+      cursor: pointer;
+      color: #2C2A24;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .contact-phone-widget a { color: #2C2A24; text-decoration: none; }
+    
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: white;
+      border-radius: 40px;
+      padding: 35px;
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+    }
+    .close-modal {
+      position: absolute;
+      left: 20px;
+      top: 15px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #999;
+    }
+    
+    .admin-header {
+      background: #2C2A24;
+      padding: 20px;
+      border-bottom: 3px solid var(--gold);
+    }
+    .admin-container-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .stat-card {
+      background: #2C2A24;
+      padding: 25px;
+      border-radius: 24px;
+      text-align: center;
+      color: white;
+      border: 1px solid rgba(201,168,124,0.2);
+    }
+    .stat-value { font-size: 2rem; font-weight: 800; color: var(--gold); }
+    .section-card {
+      background: #2C2A24;
+      border-radius: 24px;
+      padding: 25px;
+      margin-bottom: 30px;
+      border: 1px solid rgba(201,168,124,0.2);
+    }
+    .section-card h3 { color: var(--gold); margin-bottom: 20px; }
+    .section-card input, .section-card textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 50px;
+      border: 1px solid var(--gold);
+      background: #3A3830;
+      color: white;
+      font-family: inherit;
+    }
+    .custom-file-upload {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: #2C2A24;
+      padding: 12px 25px;
+      border-radius: 50px;
+      cursor: pointer;
+      display: inline-block;
+      font-weight: bold;
+      margin: 10px 0;
+      border: none;
+      font-size: 0.9rem;
+      transition: 0.3s;
+    }
+    .custom-file-upload:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+    .listings-table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #E8E3D9;
+    }
+    .listings-table th, .listings-table td {
+      padding: 12px;
+      border-bottom: 1px solid rgba(201,168,124,0.3);
+      text-align: right;
+    }
+    
+    .youtube-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 24px;
+      margin-bottom: 20px;
+    }
+    .youtube-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 24px;
+    }
+    
+    @media (max-width: 700px) {
+      .hero-content h1 { font-size: 1.8rem; }
+      .nav { flex-direction: column; }
+      .nav-links { justify-content: center; }
+      .logo-icon { width: 40px; height: 40px; font-size: 1.4rem; }
+      .logo-main { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- شريط الإعلانات العلوي المتحرك -->
+<div class="marquee-container" id="marqueeContainer">
+  <div class="marquee-content" id="marqueeContent"></div>
+</div>
+
+<header class="header">
+  <div class="container">
+    <div class="nav">
+      <div class="logo-wrapper" onclick="showPage('home')">
+        <div class="logo-icon"><i class="fas fa-building"></i></div>
+        <div class="logo-text">
+          <div class="logo-main">منصة الصلحة العقارية</div>
+          <div class="logo-sub">أرقى وجهة للاستثمار</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <button class="nav-btn" onclick="showPage('home')"><i class="fas fa-home"></i> الرئيسية</button>
+        <button class="nav-btn" onclick="showPage('marketplace')"><i class="fas fa-store"></i> السوق</button>
+        <button class="nav-btn" onclick="showPage('contact')"><i class="fas fa-headset"></i> اتصل بنا</button>
+        <button class="nav-btn" onclick="showPage('about')"><i class="fas fa-info-circle"></i> من نحن</button>
+        <button class="nav-btn" onclick="showPage('privacy')"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</button>
+        <button id="headerAddLandBtn" class="btn-add-land"><i class="fas fa-plus-circle"></i> أضف عرضك</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div id="homePage" class="page active-page">
+    <section class="hero">
+      <div class="hero-content">
+        <h1>أرقى شمسة الاستثمار</h1>
+        <p>منصة الصلحة العقارية - بوابتك لعالم الأراضي الفاخرة والاستثمار الآمن</p>
+        <button class="btn-gold" onclick="showPage('marketplace')"><i class="fas fa-search"></i> تصفح العروض الحصرية</button>
+        <button class="btn-gold btn-viewer" onclick="openViewerDashboard()" style="margin-right: 15px;"><i class="fas fa-eye"></i> دخول المستطلعين</button>
+      </div>
+    </section>
+    <section class="listings">
+      <div class="container">
+        <div class="section-header"><h2>أراضي مميزة</h2></div>
+        <div class="card-grid" id="homeLandGrid"></div>
+      </div>
+    </section>
+  </div>
+
+  <div id="marketplacePage" class="page">
+    <section class="listings">
+      <div class="container">
+        <div class="section-header"><h2>جميع العروض</h2></div>
+        <div class="card-grid" id="marketGrid"></div>
+      </div>
+    </section>
+  </div>
+
+  <div id="addListingPage" class="page">
+    <div class="container">
+      <div class="form-card">
+        <div class="form-header"><h2><i class="fas fa-plus-circle"></i> إضافة عرض أرض جديد</h2><p>مستندات مطلوبة / نموذج استراتيجي</p></div>
+        <form id="agentLandForm">
+          <div class="field-group"><label>اسم الأرض</label><input type="text" id="agentLandName" required></div>
+          <div class="field-group"><label>السعر (ريال)</label><input type="number" id="agentLandPrice" required></div>
+          <div class="field-group"><label>المساحة (م²)</label><input type="text" id="agentLandArea" required></div>
+          <div class="field-group">
+            <label><i class="fas fa-map-marker-alt"></i> رابط الموقع GPS</label>
+            <input type="url" id="agentGpsLink" placeholder="https://maps.google.com/...">
+            <button type="button" id="getLocationBtn" class="btn-icon"><i class="fas fa-map-marker-alt"></i> تحديد موقعي الآن</button>
+            <div id="locationStatus" style="font-size:0.8rem; margin-top:5px;"></div>
+          </div>
+          <div class="field-group">
+            <label>صور الأرض</label>
+            <div class="file-area" id="uploadTrigger"><i class="fas fa-cloud-upload-alt"></i><p>اضغط لرفع الصور</p><input type="file" id="agentImages" accept="image/*" multiple style="display:none;"></div>
+            <div id="imagePreviewArea" class="preview-imgs"></div>
+          </div>
+          <div class="field-group"><label>اسم المصلح / المكتب</label><input type="text" id="agentName" required></div>
+          <button type="submit" class="btn-gold" style="width:100%"><i class="fas fa-save"></i> إضافة العرض الآن</button>
+          <p id="formFeedback" style="margin-top:15px; text-align:center;"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="contactPage" class="page">
+    <div class="container">
+      <div class="contact-card">
+        <i class="fas fa-phone-alt" style="font-size:3rem; color:var(--gold);"></i>
+        <h2>تواصل مع فريق الصلحة</h2>
+        <p style="font-size:2rem; margin:20px 0;"><a href="tel:778167156" style="color:var(--olive-dark);">778167156</a></p>
+        <p>خدمة العملاء 24/7</p>
+        <hr style="margin:20px 0;">
+        <p><i class="fas fa-file-alt"></i> مستندات مطلوبة / نموذج استراتيجي متوفر لدى فريق الدعم</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="aboutPage" class="page">
+    <div class="container">
+      <div class="about-wrapper">
+        <div class="about-text">
+          <h2>منصة الصلحة العقارية</h2>
+          <p>أرقى وجهة للاستثمار في الأراضي الفاخرة. نربط كبار المستثمرين بأجمل المواقع البكر في المملكة.</p>
+          <p>نقدم استشارات عقارية متكاملة، ونوفر جميع المستندات المطلوبة والنماذج الاستراتيجية لضمان صفقات آمنة ومربحة.</p>
+          <div style="display:flex; gap:20px; margin-top:25px;">
+            <div><strong>+1,200</strong><br>عميل سعيد</div>
+            <div><strong>+500K</strong><br>متر مربع</div>
+            <div><strong>98%</strong><br>رضا العملاء</div>
+          </div>
+        </div>
+        <div class="about-img">
+          <div class="youtube-container">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&loop=1&playlist=dQw4w9WgXcQ" 
+                    title="فيديو تعريفي عن الاستثمار العقاري" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="privacyPage" class="page">
+    <div class="container">
+      <div class="privacy-content">
+        <h1 style="color:var(--olive-dark);">سياسة الخصوصية</h1>
+        <p>نحن في منصة الصلحة العقارية نلتزم بحماية خصوصية بياناتك الشخصية.</p>
+        <h3 style="margin-top:20px;">جمع المعلومات</h3>
+        <p>نقوم بجمع البيانات التي تقدمها طواعية مثل الاسم والبريد الإلكتروني ورقم الهاتف.</p>
+        <h3>استخدام البيانات</h3>
+        <p>تُستخدم بياناتك لتقديم عروض الأراضي المناسبة وإدارة الطلبات.</p>
+        <p style="margin-top:30px;">آخر تحديث: يناير 2026</p>
+        <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--sand);">
+          <a href="#" id="hiddenAdminGateway" style="background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: #2C2A24; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block;">
+            🔒 بوابة الإدارة 🔒
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- لوحة استطلاع المستطلعين -->
+  <div id="viewerDashboard" class="dashboard-container">
+    <div class="admin-header">
+      <div class="admin-container-inner" style="display:flex; justify-content:space-between; align-items:center;">
+        <h2 style="color:var(--gold);"><i class="fas fa-eye"></i> لوحة استطلاع منصة الصلحة</h2>
+        <button id="logoutViewerBtn" class="btn-gold"><i class="fas fa-sign-out-alt"></i> خروج</button>
+      </div>
+    </div>
+    <div class="admin-container-inner">
+      <div class="section-card">
+        <h3>📋 قائمة الأراضي المعروضة</h3>
+        <div style="overflow-x:auto;">
+          <table class="listings-table">
+            <thead><tr><th>اسم الأرض</th><th>المصلح</th><th>السعر</th><th>الموقع</th></tr></thead>
+            <tbody id="viewerTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- لوحة تحكم المدير الرئيسي -->
+  <div id="masterAdminDashboard" class="dashboard-container">
+    <div class="admin-header">
+      <div class="admin-container-inner" style="display:flex; justify-content:space-between; align-items:center;">
+        <h2 style="color:var(--gold);"><i class="fas fa-crown"></i> لوحة تحكم المدير الرئيسي</h2>
+        <button id="logoutMasterBtn" class="btn-gold"><i class="fas fa-sign-out-alt"></i> خروج</button>
+      </div>
+    </div>
+    <div class="admin-container-inner">
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-value" id="totalListingsCount">0</div><div>إجمالي العروض</div></div>
+        <div class="stat-card"><div class="stat-value" id="pendingListingsCount">0</div><div>قيد الانتظار</div></div>
+        <div class="stat-card"><div class="stat-value" id="todayViewersCount">0</div><div>زوار اليوم</div></div>
+      </div>
+      
+      <div class="section-card">
+        <h3><i class="fas fa-key"></i> إدارة كلمات المرور والإعلانات</h3>
+        <div style="margin-bottom:20px;">
+          <label>كود المصلحين (لإضافة عروض جديدة)</label>
+          <input type="text" id="agentCodeSetting" value="Salha2026">
+        </div>
+        <div style="margin-bottom:20px;">
+          <label><i class="fas fa-bullhorn"></i> نص الإعلان المتحرك</label>
+          <textarea id="marqueeText" rows="3" style="width:100%;">✨ منصة الصلحة العقارية - أرقى وجهة للاستثمار ✨ | مستندات مطلوبة / نموذج استراتيجي | Hsn Greenworks - Al-Imamah | للاستثمار اتصل: 778167156 | عروض حصرية بأفضل الأسعار</textarea>
+        </div>
+        <div style="margin-bottom:20px;">
+          <label><i class="fas fa-palette"></i> لون الإعلان</label>
+          <input type="color" id="marqueeColor" value="#C9A87C" style="width:100%;">
+        </div>
+        <div style="margin-bottom:20px;">
+          <label><i class="fas fa-tachometer-alt"></i> سرعة الإعلان (ثانية)</label>
+          <input type="range" id="marqueeSpeed" min="10" max="40" value="25" style="width:100%;">
+          <span id="speedValue">25</span> ثانية
+        </div>
+        <button id="applyMarqueeSettings" class="btn-gold"><i class="fas fa-save"></i> تطبيق تغييرات الإعلان</button>
+        
+        <hr style="margin: 30px 0; border-color: rgba(201,168,124,0.3);">
+        
+        <h3 style="margin-top: 15px;"><i class="fas fa-video"></i> إدارة الفيديو السفلي</h3>
+        <div style="margin-bottom:20px; text-align: center;">
+          <label for="footerVideoInput" class="custom-file-upload">
+            <i class="fas fa-folder-open"></i> 📂 اختيار فيديو من الملفات
+          </label>
+          <input type="file" id="footerVideoInput" accept="video/mp4,video/webm,video/quicktime" style="display: none;">
+          <small style="color: #aaa; display: block; margin-top: 5px;">MP4, WebM - الحجم الموصى به: أقل من 20 ميجابايت</small>
+        </div>
+        
+        <div id="currentVideoPreview" style="margin-top: 10px; padding: 15px; background: #3A3830; border-radius: 20px;">
+          <p style="color: var(--gold); margin-bottom: 10px;"><i class="fas fa-play-circle"></i> معاينة الفيديو الحالي:</p>
+          <video width="100%" style="max-height: 150px; border-radius: 15px;" controls id="previewVideo">
+            <source src="" id="currentVideoSource" type="video/mp4">
+          </video>
+        </div>
+        <p id="videoFeedback" style="margin-top: 10px; color: var(--gold); text-align: center;"></p>
+        
+        <button id="saveCodesBtn" class="btn-gold" style="margin-top: 20px;"><i class="fas fa-save"></i> حفظ جميع التغييرات</button>
+        <p id="codeFeedback" style="margin-top:10px; color:var(--gold);"></p>
+      </div>
+      
+      <div class="section-card">
+        <h3><i class="fas fa-list-check"></i> العروض المقدمة من المصلحين</h3>
+        <div style="overflow-x:auto;">
+          <table class="listings-table">
+            <thead><tr><th>اسم الأرض</th><th>المصلح</th><th>السعر</th><th>GPS</th><th>الصورة</th><th>الحالة</th><th>إجراءات</th></tr></thead>
+            <tbody id="adminTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- شريط فيديو سفلي مع تحكم بالصوت -->
+<div class="video-footer">
+  <div class="video-banner" id="videoBanner">
+    <video id="footerVideo" autoplay loop playsinline>
+      <source src="" type="video/mp4" id="footerVideoSource">
+      Your browser does not support the video tag.
+    </video>
+    <div class="video-controls">
+      <button id="playPauseBtn" title="تشغيل/إيقاف"><i class="fas fa-play"></i></button>
+      <button id="muteBtn" title="كتم/إلغاء كتم الصوت"><i class="fas fa-volume-up"></i></button>
+      <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.01" value="0.5">
+      <span id="volumeValue">50%</span>
+    </div>
+    <div class="video-caption" id="videoCaption">
+      <i class="fas fa-info-circle"></i> شاهد جمال الأراضي الفاخرة | فرص استثمارية لا تعوض
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 منصة الصلحة العقارية — أرقى وجهة للاستثمار | للتواصل: <a href="tel:778167156"><i class="fas fa-phone"></i> 778167156</a></p>
+  <p style="font-size:0.8rem; margin-top:8px;">مستندات مطلوبة / نموذج استراتيجي - Hsn Greenworks - Al-Imamah</p>
+</footer>
+
+<div class="contact-phone-widget"><a href="tel:778167156"><i class="fas fa-phone-alt"></i> 778167156</a></div>
+<div id="fabAddLand" class="fab-add-land"><i class="fas fa-plus-circle"></i></div>
+
+<!-- مودالات -->
+<div id="agentPasswordModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <i class="fas fa-user-shield" style="font-size:3rem; color:var(--gold);"></i>
+    <h3>بوابة المصلحين</h3>
+    <input type="password" id="agentPasswordInput" placeholder="كلمة مرور المصلحين" style="width:100%; padding:10px; margin:15px 0; border-radius:50px;">
+    <button id="verifyAgentBtn" class="btn-gold" style="width:100%"><i class="fas fa-check"></i> تأكيد</button>
+    <p id="agentPassError" style="color:red; margin-top:10px;"></p>
+    <hr style="margin:15px 0;">
+    <p>ليس لديك كود؟ <a href="tel:778167156" style="color:var(--gold);">اتصل بالدعم 778167156</a></p>
+  </div>
+</div>
+
+<div id="masterLoginModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <i class="fas fa-shield-alt" style="font-size:3rem; color:var(--gold);"></i>
+    <h3>دخول المدير الرئيسي</h3>
+    <input type="password" id="masterPasswordInput" placeholder="كلمة مرور المدير" style="width:100%; padding:10px; margin:15px 0; border-radius:50px;">
+    <button id="verifyMasterBtn" class="btn-gold" style="width:100%"><i class="fas fa-check"></i> تأكيد الدخول</button>
+    <p id="masterPassError" style="color:red; margin-top:10px;"></p>
+  </div>
+</div>
+
+<script>
+  // البيانات
+  let lands = JSON.parse(localStorage.getItem('platformLandsMaster')) || [
+    { id: 1, name: "واحة النخيل الذهبي", agentName: "مكتب الصلحة", price: "950,000 ر.س", priceRaw: 950000, area: "2,450 م²", gpsLink: "https://www.google.com/maps?q=24.7136,46.6753", imageUrl: "https://images.pexels.com/photos/1252890/pexels-photo-1252890.jpeg?auto=compress&w=200", status: "approved" },
+    { id: 2, name: "مرتفعات الأفق - العلا", agentName: "أحمد المصلح", price: "1,250,000 ر.س", priceRaw: 1250000, area: "3,200 م²", gpsLink: "https://www.google.com/maps?q=26.5,37.9", imageUrl: "https://images.pexels.com/photos/296282/pexels-photo-296282.jpeg?auto=compress&w=200", status: "pending" }
+  ];
+  
+  let accessCodes = JSON.parse(localStorage.getItem('platform_access_codes')) || { 
+    agentCode: "Salha2026", 
+    marqueeText: "✨ منصة الصلحة العقارية - أرقى وجهة للاستثمار ✨ | مستندات مطلوبة / نموذج استراتيجي | Hsn Greenworks - Al-Imamah | للاستثمار اتصل: 778167156 | عروض حصرية بأفضل الأسعار",
+    marqueeColor: "#C9A87C",
+    marqueeSpeed: 25,
+    footerVideoUrl: "https://assets.mixkit.co/videos/preview/mixkit-aerial-shot-of-a-luxury-house-2199-large.mp4"
+  };
+  let viewerLogins = JSON.parse(localStorage.getItem('viewer_daily_logins')) || [];
+
+  function saveLands() { localStorage.setItem('platformLandsMaster', JSON.stringify(lands)); }
+  function saveCodes() { localStorage.setItem('platform_access_codes', JSON.stringify(accessCodes)); }
+  function saveViewerLogins() { localStorage.setItem('viewer_daily_logins', JSON.stringify(viewerLogins)); }
+
+  function updateMarquee() {
+    const marqueeDiv = document.getElementById('marqueeContent');
+    if(marqueeDiv && accessCodes.marqueeText) {
+      const text = accessCodes.marqueeText;
+      const parts = text.split('|');
+      let html = '';
+      for(let i = 0; i < parts.length; i++) {
+        html += `<span><i class="fas fa-star"></i> ${parts[i].trim()} <i class="fas fa-star"></i></span>`;
+      }
+      marqueeDiv.innerHTML = html;
+      marqueeDiv.style.animation = 'none';
+      const speed = accessCodes.marqueeSpeed || 25;
+      setTimeout(() => { 
+        marqueeDiv.style.animation = `marqueeScroll ${speed}s linear infinite`;
+      }, 10);
+    }
+  }
+  
+  function updateMarqueeColors() {
+    const container = document.getElementById('marqueeContainer');
+    if(container && accessCodes.marqueeColor) {
+      container.style.background = `linear-gradient(90deg, ${accessCodes.marqueeColor}, #7A8B5C, #B48C5C, ${accessCodes.marqueeColor})`;
+      container.style.backgroundSize = '300% 100%';
+    }
+  }
+  
+  // إعدادات التحكم بالفيديو
+  function setupVideoControls() {
+    const video = document.getElementById('footerVideo');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const muteBtn = document.getElementById('muteBtn');
+    const volumeSlider = document.getElementById('volumeSlider');
+    const volumeValue = document.getElementById('volumeValue');
+    
+    if(!video) return;
+    
+    // تعيين مستوى الصوت الافتراضي
+    video.volume = 0.5;
+    
+    // زر التشغيل/الإيقاف
+    playPauseBtn.addEventListener('click', function() {
+      if(video.paused) {
+        video.play();
+        playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+      } else {
+        video.pause();
+        playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+      }
+    });
+    
+    // تحديث أيقونة التشغيل عند تغيير حالة الفيديو
+    video.addEventListener('play', function() {
+      playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+    });
+    video.addEventListener('pause', function() {
+      playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+    });
+    
+    // زر كتم/إلغاء كتم الصوت
+    muteBtn.addEventListener('click', function() {
+      video.muted = !video.muted;
+      if(video.muted) {
+        muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+        volumeSlider.value = 0;
+        volumeValue.textContent = '0%';
+      } else {
+        muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+        volumeSlider.value = video.volume;
+        volumeValue.textContent = Math.round(video.volume * 100) + '%';
+      }
+    });
+    
+    // شريط التحكم بالصوت
+    volumeSlider.addEventListener('input', function() {
+      const vol = parseFloat(this.value);
+      video.volume = vol;
+      video.muted = false;
+      muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+      volumeValue.textContent = Math.round(vol * 100) + '%';
+    });
+    
+    // تحديث شريط الصوت عند تغيير الصوت من الفيديو نفسه
+    video.addEventListener('volumechange', function() {
+      if(!video.muted) {
+        volumeSlider.value = video.volume;
+        volumeValue.textContent = Math.round(video.volume * 100) + '%';
+      }
+    });
+  }
+  
+  function updateFooterVideo() {
+    const videoSource = document.getElementById('footerVideoSource');
+    const video = document.getElementById('footerVideo');
+    if(videoSource && video && accessCodes.footerVideoUrl) {
+      videoSource.src = accessCodes.footerVideoUrl;
+      video.load();
+      
+      // محاولة التشغيل التلقائي مع معالجة الأخطاء
+      const playPromise = video.play();
+      if(playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.log("Auto-play prevented:", error);
+        });
+      }
+    }
+    const previewSource = document.getElementById('currentVideoSource');
+    const previewVideo = document.getElementById('previewVideo');
+    if(previewSource && previewVideo && accessCodes.footerVideoUrl) {
+      previewSource.src = accessCodes.footerVideoUrl;
+      previewVideo.load();
+    }
+  }
+
+  function hideAll() {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
+    document.querySelectorAll('.dashboard-container').forEach(d => d.style.display = 'none');
+  }
+
+  function showPage(pageId) {
+    hideAll();
+    document.getElementById(pageId + 'Page').classList.add('active-page');
+    window.scrollTo(0, 0);
+  }
+
+  function openViewerDashboard() {
+    hideAll();
+    document.getElementById('viewerDashboard').style.display = 'block';
+    renderViewerTable();
+    const today = new Date().toISOString().split('T')[0];
+    if(!viewerLogins.some(l=>l.date===today)) { viewerLogins.push({date: today, count:1}); saveViewerLogins(); }
+    else { viewerLogins.find(l=>l.date===today).count++; saveViewerLogins(); }
+  }
+
+  function showMasterDashboard() {
+    hideAll();
+    document.getElementById('masterAdminDashboard').style.display = 'block';
+    document.getElementById('agentCodeSetting').value = accessCodes.agentCode;
+    document.getElementById('marqueeText').value = accessCodes.marqueeText;
+    document.getElementById('marqueeColor').value = accessCodes.marqueeColor;
+    document.getElementById('marqueeSpeed').value = accessCodes.marqueeSpeed || 25;
+    document.getElementById('speedValue').innerText = accessCodes.marqueeSpeed || 25;
+    renderAdminTable();
+    updateFooterVideo();
+  }
+
+  function renderCards() {
+    const approvedLands = lands.filter(l => l.status === 'approved');
+    const html = approvedLands.map(land => `
+      <div class="land-card">
+        <div class="card-img" style="background-image:url('${land.imageUrl}');"><div class="card-badge"><i class="fas fa-certificate"></i> للبيع</div></div>
+        <div class="card-content">
+          <div class="card-title">${land.name}<div class="gps-icon" onclick="window.open('${land.gpsLink}','_blank')" title="عرض الموقع على الخريطة"><i class="fas fa-map-marker-alt"></i></div></div>
+          <div class="detail-item"><i class="fas fa-user-tie"></i> ${land.agentName}</div>
+          <div class="detail-item"><i class="fas fa-expand-alt"></i> ${land.area}</div>
+          <div class="price"><i class="fas fa-tag"></i> ${land.price}</div>
+          <button onclick="alert('📞 للاستفسار اتصل على 778167156')" style="margin-top:15px; background:linear-gradient(135deg,var(--gold),var(--gold-dark)); border:none; padding:10px; border-radius:50px; width:100%; color:#2C2A24; font-weight:700; cursor:pointer;"><i class="fas fa-question-circle"></i> استفسار</button>
+        </div>
+      </div>
+    `).join('');
+    document.getElementById('homeLandGrid') && (document.getElementById('homeLandGrid').innerHTML = html);
+    document.getElementById('marketGrid') && (document.getElementById('marketGrid').innerHTML = html);
+  }
+
+  function renderAdminTable() {
+    const tbody = document.getElementById('adminTableBody');
+    if(!tbody) return;
+    tbody.innerHTML = lands.map(land => `
+      <tr>
+        <td>${land.name}</td>
+        <td>${land.agentName}</td>
+        <td>${land.price}</td>
+        <td><a href="${land.gpsLink}" target="_blank" style="color:var(--gold);"><i class="fas fa-map-marker-alt"></i></a></td>
+        <td><img src="${land.imageUrl}" style="width:45px;height:45px;object-fit:cover;border-radius:10px;"></td>
+        <td><span style="background:${land.status === 'approved' ? '#2E7D32' : '#856404'}; padding:5px 12px; border-radius:30px;">${land.status === 'approved' ? 'موافق' : 'قيد الانتظار'}</span></td>
+        <td>
+          <button onclick="approveLand(${land.id})" style="background:#2E7D32; border:none; padding:6px 12px; border-radius:20px; color:white; margin:2px;"><i class="fas fa-check"></i></button>
+          <button onclick="deleteLand(${land.id})" style="background:#c0392b; border:none; padding:6px 12px; border-radius:20px; color:white;"><i class="fas fa-trash"></i></button>
+        </td>
+      </tr>
+    `).join('');
+    document.getElementById('totalListingsCount').innerText = lands.length;
+    document.getElementById('pendingListingsCount').innerText = lands.filter(l=>l.status==='pending').length;
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('todayViewersCount').innerText = viewerLogins.filter(l=>l.date===today).length;
+  }
+
+  function renderViewerTable() {
+    const tbody = document.getElementById('viewerTableBody');
+    if(!tbody) return;
+    const approvedLands = lands.filter(l => l.status === 'approved');
+    tbody.innerHTML = approvedLands.map(land => `
+      <tr>
+        <td>${land.name}</td>
+        <td>${land.agentName}</td>
+        <td>${land.price}</td>
+        <td><a href="${land.gpsLink}" target="_blank" style="color:var(--gold);"><i class="fas fa-map-marker-alt"></i> عرض الموقع</a></td>
+      </tr>
+    `).join('');
+  }
+
+  window.approveLand = function(id) { 
+    const land = lands.find(l=>l.id===id); 
+    if(land) { land.status = 'approved'; saveLands(); renderAdminTable(); renderCards(); renderViewerTable(); alert(`✅ تمت الموافقة على عرض "${land.name}"`); } 
+  };
+  
+  window.deleteLand = function(id) { 
+    if(confirm('حذف العرض نهائياً؟')) { lands = lands.filter(l=>l.id!==id); saveLands(); renderAdminTable(); renderCards(); renderViewerTable(); } 
+  };
+
+  function getAccurateLocation() {
+    const btn = document.getElementById('getLocationBtn');
+    const statusDiv = document.getElementById('locationStatus');
+    const gpsInput = document.getElementById('agentGpsLink');
+    if (!navigator.geolocation) { statusDiv.innerHTML = '❌ متصفحك لا يدعم GPS'; return; }
+    btn.disabled = true;
+    btn.innerHTML = 'جاري التحديد...';
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        gpsInput.value = `https://www.google.com/maps?q=${position.coords.latitude},${position.coords.longitude}`;
+        statusDiv.innerHTML = `✅ تم تحديد موقعك بدقة ${Math.round(position.coords.accuracy)} متر`;
+        btn.innerHTML = '<i class="fas fa-check-circle"></i> تم التحديد';
+        setTimeout(() => { btn.innerHTML = '<i class="fas fa-map-marker-alt"></i> تحديد موقعي الآن'; btn.disabled = false; }, 2000);
+      },
+      () => { statusDiv.innerHTML = '❌ فشل تحديد الموقع'; btn.innerHTML = '<i class="fas fa-map-marker-alt"></i> تحديد موقعي الآن'; btn.disabled = false; }
+    );
+  }
+
+  document.getElementById('agentLandForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const newLand = {
+      id: Date.now(),
+      name: document.getElementById('agentLandName').value,
+      agentName: document.getElementById('agentName').value,
+      price: parseFloat(document.getElementById('agentLandPrice').value).toLocaleString() + ' ر.س',
+      priceRaw: parseFloat(document.getElementById('agentLandPrice').value),
+      area: document.getElementById('agentLandArea').value + ' م²',
+      gpsLink: document.getElementById('agentGpsLink').value,
+      imageUrl: document.getElementById('agentImages').files[0] ? URL.createObjectURL(document.getElementById('agentImages').files[0]) : 'https://images.pexels.com/photos/1183099/pexels-photo-1183099.jpeg?auto=compress&w=200',
+      status: 'pending'
+    };
+    lands.push(newLand); saveLands(); renderAdminTable(); renderCards(); renderViewerTable();
+    document.getElementById('formFeedback').innerHTML = '<span style="color:#2E7D32;">✅ تم إرسال العرض للمراجعة!</span>';
+    e.target.reset(); document.getElementById('imagePreviewArea').innerHTML = '';
+    setTimeout(() => document.getElementById('formFeedback').innerHTML = '', 3000);
+  });
+
+  document.getElementById('uploadTrigger')?.addEventListener('click', () => document.getElementById('agentImages').click());
+  document.getElementById('agentImages')?.addEventListener('change', (e) => {
+    const preview = document.getElementById('imagePreviewArea');
+    preview.innerHTML = '';
+    Array.from(e.target.files).forEach(f => {
+      const reader = new FileReader();
+      reader.onload = ev => { const img = document.createElement('img'); img.src = ev.target.result; img.classList.add('preview-img'); preview.appendChild(img); };
+      reader.readAsDataURL(f);
+    });
+  });
+
+  // رفع الفيديو من الملفات
+  const videoFileInput = document.getElementById('footerVideoInput');
+  const uploadButton = document.querySelector('.custom-file-upload');
+  
+  if(uploadButton && videoFileInput) {
+    uploadButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      videoFileInput.click();
+    });
+    
+    videoFileInput.addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if(file) {
+        const fileType = file.type;
+        if(fileType === 'video/mp4' || fileType === 'video/webm' || fileType === 'video/quicktime') {
+          const reader = new FileReader();
+          reader.onload = function(ev) {
+            const videoUrl = ev.target.result;
+            accessCodes.footerVideoUrl = videoUrl;
+            saveCodes();
+            updateFooterVideo();
+            setupVideoControls();
+            document.getElementById('videoFeedback').innerHTML = '✅ تم رفع الفيديو وتحديث الصفحة بنجاح!';
+            document.getElementById('videoFeedback').style.color = '#4CAF50';
+            setTimeout(() => { document.getElementById('videoFeedback').innerHTML = ''; }, 3000);
+          };
+          reader.readAsDataURL(file);
+        } else {
+          document.getElementById('videoFeedback').innerHTML = '⚠️ يرجى اختيار ملف فيديو بصيغة MP4 أو WebM';
+          document.getElementById('videoFeedback').style.color = '#ff9800';
+          setTimeout(() => { document.getElementById('videoFeedback').innerHTML = ''; }, 3000);
+        }
+      }
+    });
+  }
+
+  // شريط سرعة الإعلان
+  const speedSlider = document.getElementById('marqueeSpeed');
+  const speedSpan = document.getElementById('speedValue');
+  if(speedSlider) {
+    speedSlider.addEventListener('input', function() {
+      speedSpan.innerText = this.value;
+    });
+  }
+
+  document.getElementById('headerAddLandBtn')?.addEventListener('click', () => document.getElementById('agentPasswordModal').style.display = 'flex');
+  document.getElementById('fabAddLand')?.addEventListener('click', () => document.getElementById('agentPasswordModal').style.display = 'flex');
+  document.getElementById('getLocationBtn')?.addEventListener('click', getAccurateLocation);
+  
+  document.querySelectorAll('.close-modal').forEach(el => el.onclick = function(){ this.closest('.modal').style.display = 'none'; });
+
+  document.getElementById('verifyAgentBtn').onclick = () => {
+    if(document.getElementById('agentPasswordInput').value === accessCodes.agentCode) {
+      document.getElementById('agentPasswordModal').style.display = 'none';
+      hideAll();
+      document.getElementById('addListingPage').classList.add('active-page');
+    } else { 
+      document.getElementById('agentPassError').innerHTML = '⚠️ كلمة المرور غير صحيحة';
+    }
+  };
+
+  document.getElementById('verifyMasterBtn').onclick = () => {
+    if(document.getElementById('masterPasswordInput').value === "abdh ai") {
+      document.getElementById('masterLoginModal').style.display = 'none';
+      showMasterDashboard();
+    } else { 
+      document.getElementById('masterPassError').innerHTML = '⚠️ كلمة المرور غير صحيحة';
+    }
+  };
+
+  document.getElementById('logoutViewerBtn')?.addEventListener('click', () => { showPage('home'); });
+  document.getElementById('logoutMasterBtn')?.addEventListener('click', () => { showPage('home'); });
+  
+  document.getElementById('saveCodesBtn')?.addEventListener('click', () => {
+    accessCodes.agentCode = document.getElementById('agentCodeSetting').value;
+    saveCodes();
+    document.getElementById('codeFeedback').innerHTML = '✅ تم تحديث كلمة مرور المصلحين بنجاح!';
+    setTimeout(() => document.getElementById('codeFeedback').innerHTML = '', 3000);
+  });
+
+  document.getElementById('applyMarqueeSettings')?.addEventListener('click', () => {
+    accessCodes.marqueeText = document.getElementById('marqueeText').value;
+    accessCodes.marqueeColor = document.getElementById('marqueeColor').value;
+    accessCodes.marqueeSpeed = parseInt(document.getElementById('marqueeSpeed').value);
+    saveCodes();
+    updateMarquee();
+    updateMarqueeColors();
+    document.getElementById('codeFeedback').innerHTML = '✅ تم تحديث شريط الإعلانات بنجاح!';
+    setTimeout(() => document.getElementById('codeFeedback').innerHTML = '', 3000);
+  });
+
+  document.getElementById('hiddenAdminGateway')?.addEventListener('click', (e) => { 
+    e.preventDefault(); 
+    document.getElementById('masterLoginModal').style.display = 'flex';
+  });
+
+  updateMarquee();
+  updateMarqueeColors();
+  updateFooterVideo();
+  setupVideoControls();
+  renderCards();
+  saveLands();
+</script>
+</body>
+</html>
